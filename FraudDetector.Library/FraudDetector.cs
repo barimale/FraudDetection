@@ -21,7 +21,7 @@ namespace FraudDetector.Library
                 throw new FraudoneByOneInvalidException(@"Payments are not defined one by one according to timestamp value.");
             }
 
-            var isTimeValid = sortedPayments.Last().Timestamp.Minute - sortedPayments.First().Timestamp.Minute <= 1;
+            var isTimeValid = (sortedPayments.Last().Timestamp - sortedPayments.First().Timestamp).Minutes <= 1;
 
             if(!isTimeValid)
             {

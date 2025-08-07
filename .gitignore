@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/FraudDetector.Library
+/FraudDetector.Library/bin/Debug/net8.0
+/FraudDetector.Library/obj
+/FraudDetector.UTs/bin/Debug/net8.0
+/FraudDetector.UTs/obj

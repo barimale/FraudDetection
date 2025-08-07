@@ -61,7 +61,6 @@ namespace FraudDetector.UTs
             Assert.Throws<FraudoneByOneInvalidException>(() => fraudDetector.IsFraud(payments));
         }
 
-
         [Fact]
         public void When_incorrect_payments_are_done()
         {

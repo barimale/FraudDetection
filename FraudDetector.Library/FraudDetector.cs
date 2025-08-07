@@ -1,5 +1,6 @@
 ﻿using FraudDetector.Library.Exceptions;
 using FraudDetector.Library.Model;
+using System;
 
 namespace FraudDetector.Library
 {
@@ -14,7 +15,7 @@ namespace FraudDetector.Library
                 .OrderBy(p => p.Timestamp)
                 .ToList();
 
-            bool areEqual = sortedPayments.SequenceEqual(payments);
+            bool areEqual = sortedPayments.SequenceEqual(payments, new PaymentComparer());
             if(!areEqual)
             {
                 throw new FraudoneByOneInvalidException(@"Payments are not defined one by one according to timestamp value.");

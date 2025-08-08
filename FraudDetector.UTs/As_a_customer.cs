@@ -10,7 +10,7 @@ namespace FraudDetector.UTs
         public void When_correct_payments_are_done()
         {
             //given
-            var payments = new List<Payment>
+            var payments = new HashSet<Payment>
             {
                 new Payment { Amount = 6000, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
                 new Payment { Amount = 3010, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
@@ -30,7 +30,7 @@ namespace FraudDetector.UTs
         public void When_payments_are_not_defined_in_one_minute()
         {
             //given
-            var payments = new List<Payment>
+            var payments = new HashSet<Payment>
             {
                 new Payment { Amount = 6000, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
                 new Payment { Amount = 3010, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
@@ -48,7 +48,7 @@ namespace FraudDetector.UTs
         public void When_payments_are_not_defined_one_by_one()
         {
             //given
-            var payments = new List<Payment>
+            var payments = new HashSet<Payment>
             {
                 new Payment { Amount = 6000, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-11) },
                 new Payment { Amount = 3010, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-12) },
@@ -66,7 +66,7 @@ namespace FraudDetector.UTs
         public void When_incorrect_payments_are_done()
         {
             //given
-            var payments = new List<Payment>
+            var payments = new HashSet<Payment>
             {
                 new Payment { Amount = 5459.15f,  Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
                 new Payment { Amount = 3010, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },

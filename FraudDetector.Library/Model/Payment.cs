@@ -1,6 +1,6 @@
 ﻿namespace FraudDetector.Library.Model
 {
-    public record Payment
+    public record struct Payment
     {
         public float Amount { get; init; }
         public Currency Currency { get; init; }

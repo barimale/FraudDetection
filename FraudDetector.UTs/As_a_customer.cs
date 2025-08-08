@@ -1,3 +1,4 @@
+using FraudDetector.Library;
 using FraudDetector.Library.Exceptions;
 using FraudDetector.Library.Model;
 
@@ -16,7 +17,7 @@ namespace FraudDetector.UTs
                 new Payment { Amount = 7000, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
                 new Payment { Amount = 1000, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) }
             };
-            var fraudDetector = new Library.FraudDetector();
+            IFraudDetector fraudDetector = new Library.FraudDetector();
 
             //when
             var result = fraudDetector.IsFraud(payments);
@@ -36,7 +37,7 @@ namespace FraudDetector.UTs
                 new Payment { Amount = 7000, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
                 new Payment { Amount = 1000, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-8) }
             };
-            var fraudDetector = new Library.FraudDetector();
+            IFraudDetector fraudDetector = new Library.FraudDetector();
 
             //when
             //then
@@ -54,7 +55,7 @@ namespace FraudDetector.UTs
                 new Payment { Amount = 7000, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
                 new Payment { Amount = 1000, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) }
             };
-            var fraudDetector = new Library.FraudDetector();
+            IFraudDetector fraudDetector = new Library.FraudDetector();
 
             //when
             //then
@@ -72,7 +73,7 @@ namespace FraudDetector.UTs
                 new Payment { Amount = 6900, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) },
                 new Payment { Amount = 10000, Currency =  Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-10) }
             };
-            var fraudDetector = new Library.FraudDetector();
+            IFraudDetector fraudDetector = new Library.FraudDetector();
 
             //when
             var result = fraudDetector.IsFraud(payments);

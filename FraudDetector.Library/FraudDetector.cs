@@ -1,13 +1,13 @@
 ﻿using FraudDetector.Library.Exceptions;
 using FraudDetector.Library.Model;
-using System;
 
 namespace FraudDetector.Library
 {
-    public class FraudDetector
+    public class FraudDetector : IFraudDetector
     {
         private const float FraudThreshold = 5459.12f;
         private const int FraudAmountOfExceededPayments = 3;
+        private const int PaymentsTimeThresholdInMinutes = 1;
 
         public bool IsFraud(IEnumerable<Payment> payments)
         {
@@ -16,14 +16,14 @@ namespace FraudDetector.Library
                 .ToList();
 
             bool areEqual = sortedPayments.SequenceEqual(payments, new PaymentComparer());
-            if(!areEqual)
+            if (!areEqual)
             {
                 throw new FraudoneByOneInvalidException(@"Payments are not defined one by one according to timestamp value.");
             }
 
-            var isTimeValid = (sortedPayments.Last().Timestamp - sortedPayments.First().Timestamp).Minutes <= 1;
+            var isTimeValid = (sortedPayments.Last().Timestamp - sortedPayments.First().Timestamp).Minutes <= PaymentsTimeThresholdInMinutes;
 
-            if(!isTimeValid)
+            if (!isTimeValid)
             {
                 throw new FraudTimeInvalidException(@"Payments are not within the same minute.");
             }
@@ -32,7 +32,7 @@ namespace FraudDetector.Library
                 .Where(p => p.Amount > FraudThreshold)
                 .ToList();
 
-            if(amountOfexceededPayments.Count >= FraudAmountOfExceededPayments)
+            if (amountOfexceededPayments.Count >= FraudAmountOfExceededPayments)
             {
                 return true;
             }

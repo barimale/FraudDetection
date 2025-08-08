@@ -1,6 +1,6 @@
 ﻿using FraudDetector.Library.Model;
 
-namespace FraudDetector.Library
+namespace FraudDetector.Library.Model.Comparers
 {
     public class PaymentComparer : IEqualityComparer<Payment>
     {

@@ -1,5 +1,6 @@
 ﻿using FraudDetector.Library.Exceptions;
 using FraudDetector.Library.Model;
+using FraudDetector.Library.Model.Comparers;
 
 namespace FraudDetector.Library
 {

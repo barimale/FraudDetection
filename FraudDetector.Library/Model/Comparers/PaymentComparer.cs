@@ -9,10 +9,7 @@ namespace FraudDetector.Library.Model.Comparers
             return x.Amount == y.Amount && x.Timestamp == y.Timestamp && x.Currency == y.Currency;
         }
 
-        public int GetHashCode(Payment obj)
-        {
-            return obj.Amount.GetHashCode() ^ obj.Timestamp.GetHashCode() ^ obj.Currency.GetHashCode();
-        }
+        public int GetHashCode(Payment obj) => HashCode.Combine(obj.Amount, obj.Timestamp, obj.Currency);
     }
 
 }

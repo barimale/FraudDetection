@@ -27,7 +27,7 @@ namespace FraudDetector.UTs
         }
 
         [Fact]
-        public void When_payments_are_not_defined_in_one_minute()
+        public void When_payments_are_not_executed_in_one_minute()
         {
             //given
             var payments = new List<Payment>

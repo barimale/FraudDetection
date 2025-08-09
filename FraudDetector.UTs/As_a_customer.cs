@@ -51,7 +51,7 @@ namespace FraudDetector.UTs
         public void When_payments_are_not_defined_one_by_one()
         {
             //given
-            var payments = new HashSet<Payment>
+            var payments = new List<Payment>
             {
                 new Payment { Amount = 6000, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-11) },
                 new Payment { Amount = 3010, Currency = Currency.PLN, Timestamp = DateTime.UtcNow.AddMinutes(-12) },

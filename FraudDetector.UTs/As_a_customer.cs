@@ -39,9 +39,12 @@ namespace FraudDetector.UTs
             };
             IFraudDetector fraudDetector = new Library.FraudDetector();
 
-            //when
             //then
-            Assert.Throws<FraudTimeInvalidException>(() => fraudDetector.IsFraud(payments));
+            Assert.Throws<FraudTimeInvalidException>(
+                () =>{
+                    //when
+                    fraudDetector.IsFraud(payments);
+                });
         }
 
         [Fact]
@@ -57,9 +60,12 @@ namespace FraudDetector.UTs
             };
             IFraudDetector fraudDetector = new Library.FraudDetector();
 
-            //when
             //then
-            Assert.Throws<FraudoneByOneInvalidException>(() => fraudDetector.IsFraud(payments));
+            Assert.Throws<FraudOneByOneInvalidException>(() =>
+            {
+                //when
+                fraudDetector.IsFraud(payments);
+            });
         }
 
         [Fact]

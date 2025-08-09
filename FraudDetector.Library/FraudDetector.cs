@@ -19,7 +19,7 @@ namespace FraudDetector.Library
             bool areEqual = sortedPayments.SequenceEqual(payments, new PaymentSequenceComparer());
             if (!areEqual)
             {
-                throw new FraudoneByOneInvalidException(@"Payments are not defined one by one according to timestamp value.");
+                throw new FraudOneByOneInvalidException(@"Payments are not defined one by one according to timestamp value.");
             }
 
             var isTimeValid = (sortedPayments.Last().Timestamp - sortedPayments.First().Timestamp).Minutes <= PaymentsTimeThresholdInMinutes;

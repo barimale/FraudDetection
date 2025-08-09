@@ -1,12 +1,12 @@
 ﻿namespace FraudDetector.Library.Exceptions
 {
-    public class FraudoneByOneInvalidException : Exception
+    public class FraudOneByOneInvalidException : Exception
     {
-        public FraudoneByOneInvalidException(string message) : base(message)
+        public FraudOneByOneInvalidException(string message) : base(message)
         {
             //intentionally left blank
         }
-        public FraudoneByOneInvalidException(string message, Exception innerException) : base(message, innerException)
+        public FraudOneByOneInvalidException(string message, Exception innerException) : base(message, innerException)
         {
             //intentionally left blank
         }

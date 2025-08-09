@@ -17,6 +17,7 @@ namespace FraudDetector.Library
                 .ToList();
 
             bool areEqual = payments.SequenceEqual(sortedPayments, new PaymentSequenceComparer());
+
             if (!areEqual)
             {
                 throw new FraudOneByOneInvalidException(@"Payments are not defined one by one according to timestamp value.");

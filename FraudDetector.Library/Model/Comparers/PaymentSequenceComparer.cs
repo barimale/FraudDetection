@@ -2,7 +2,7 @@
 
 namespace FraudDetector.Library.Model.Comparers
 {
-    public class PaymentComparer : IEqualityComparer<Payment>
+    public class PaymentSequenceComparer : IEqualityComparer<Payment>
     {
         public bool Equals(Payment x, Payment y)
         {

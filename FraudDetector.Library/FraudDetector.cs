@@ -32,9 +32,9 @@ namespace FraudDetector.Library
 
             var amountOfexceededPayments = payments
                 .Where(p => p.Amount > FraudThreshold)
-                .ToList();
+                .Count();
 
-            if (amountOfexceededPayments.Count >= FraudAmountOfExceededPayments)
+            if (amountOfexceededPayments >= FraudAmountOfExceededPayments)
             {
                 return true;
             }
